@@ -1,0 +1,18 @@
+git clone ...
+
+git status
+
+git pull
+
+git push
+
+git commit -a -m "message"
+
+git add [files]
+
+// Reset
+git fetch --all
+git reset --hard origin/master
+
+// Force push
+git push --force
