@@ -20,7 +20,8 @@ public class Block {
 	private int x,y;
 	
 	// public constructor
-	public Block(){
+	public Block(int x,int y){
+		this.x=x; this.y=y;
 		; // whatever you need to initialize
 	}
 	
