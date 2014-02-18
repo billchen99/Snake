@@ -22,10 +22,9 @@ public class BSnake{
 	Block sampleBlock;
 	
 	public BSnake(){
-//		sampleBlock = new Block();
-//		sampleBlock.setColor(Color.RED);
-//		sampleBlock.setX(0);
-//		sampleBlock.setY(100);
+		sampleBlock = new Block(0,100);
+		sampleBlock.setColor(Color.RED);
+
 		
 		
 		// This draws the frame/window
@@ -38,25 +37,29 @@ public class BSnake{
 	 *  What I'm doing right now is just incrementing the x coordinate of my sampleBlock every frame.
 	 */
 	public void update(){
-		Block block = new Block(headlocationx,headlocationy);
-		block.setColor(Color.RED);
-		if(blocks.size()>0)
-		blocks.remove(blocks.size()-1);
-		blocks.add(block);
-		headlocationx+=20;
+		
+		int sampleX = sampleBlock.getX();
+		sampleX++;
+		sampleBlock.setX(sampleX);
+//		Block block = new Block(headlocationx,headlocationy);
+//		block.setColor(Color.RED);
+//		blocks.add(block);
+//		blocks.remove(0);
+//		headlocationx+=Block.BLOCK_SIZE;
 	}
+	
 	public void right(){
-		headlocationx+=20;
+		headlocationx+=Block.BLOCK_SIZE;
 	}
 	public void left(){
-		headlocationx-=20;
+		headlocationx-=Block.BLOCK_SIZE;
 		
 	}
 	public void up(){
-		headlocationy-=20;
+		headlocationy-=Block.BLOCK_SIZE;
 	}
 	public void down(){
-		headlocationy +=20;
+		headlocationy +=Block.BLOCK_SIZE;
 	}
 
 	public ArrayList<Block> getBlockList(){
