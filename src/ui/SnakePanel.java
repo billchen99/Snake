@@ -2,8 +2,6 @@ package ui;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
-
 import javax.swing.JPanel;
 
 import model.Block;
@@ -27,9 +25,11 @@ public class SnakePanel extends JPanel {
 	protected void paintComponent(Graphics g) { 
 		super.paintComponent(g);
 		
-		//TODO This part needs to be modified to for snake game, currently it just draws my sample block
-		ArrayList<Block> blocks = bsnake.getBlockList();
-		drawBlock(g,blocks);
+		//TODO This part needs to be modified to for snake game
+		Block sample = bsnake.getSampleBlock();
+		Block food = bsnake.getFood();
+		drawBlock(g,sample);
+		drawBlock(g,food);
 
 	}
 	
@@ -38,17 +38,16 @@ public class SnakePanel extends JPanel {
 	 * @param g the Graphics object to protect
 	 * @param block the Block object
 	 */
-	private void drawBlock(Graphics g, ArrayList<Block> blocks){
-		for(Block b:blocks){
+	private void drawBlock(Graphics g, Block block){
 		Color savedCol = g.getColor();
-		g.setColor(b.getColor());
-		g.fillRect(b.getX(),
-				b.getY(),
+		//
+		g.setColor(block.getColor());
+		g.fillRect(block.getX(),
+				block.getY(),
 				Block.BLOCK_SIZE,
 				Block.BLOCK_SIZE);
 		
 		g.setColor(savedCol);
-		}
 	}
 
 }
