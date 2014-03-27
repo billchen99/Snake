@@ -92,7 +92,10 @@ public class BSnake{
 	}
 
 	public void wallCollision(){
-		if(sampleBlock.getX()<0 ){
+		if(sampleBlock.getX()<0 
+		|| sampleBlock.getX()>SnakeFrame.WIDTH - Block.BLOCK_SIZE
+		|| sampleBlock.getY()<0
+		|| sampleBlock.getY()>SnakeFrame.HEIGHT - Block.BLOCK_SIZE ){
 			isGameOver = true;
 			System.out.println("Game OVER!!!");
 		}
