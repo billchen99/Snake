@@ -13,19 +13,32 @@ public class MyQueue {
 		tail = head = null;
 	}
 
-	// TODO: implement push
 	// If the queue is empty, set both tail and head to be the new Node
 	// Otherwise push the new Node onto the head of the queue
 	public void push(Block s) {
-		;
+		size++;
+		if (tail == null){
+			head = tail = new MyNode(s);
+		}
+		
+		MyNode newNode = new MyNode(s);
+		newNode.setNext(head);
+		head.setPrevious(newNode);
+		head = newNode;
+		
 	}
 	
-
-	// TODO
 	// If empty return null, otherwise remove the tail item and return it.
 	@SuppressWarnings("null")
 	public Block pop() {
-		return null;
+		if(tail == null) return null;
+	
+		Block result = tail.getData();
+		MyNode newTail = tail.getPrevious();
+		newTail.setNext(null);
+		tail = newTail;
+		size--;
+		return result;
 	}
 	//will return the size of the list - will return -1 if list is empty
 	public int size() {
