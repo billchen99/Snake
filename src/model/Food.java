@@ -25,8 +25,8 @@ public class Food extends Block{
 	 */
 	private void generateCoordinates(){
 		Random random = new Random();
-		int randomX = random.nextInt(GRID_NUMBER_X)*Block.BLOCK_SIZE;
-		int randomY = random.nextInt(GRID_NUMBER_Y)*Block.BLOCK_SIZE;
+		int randomX = random.nextInt(GRID_NUMBER_X - 1)*Block.BLOCK_SIZE;
+		int randomY = random.nextInt(GRID_NUMBER_Y - 1)*Block.BLOCK_SIZE;
 		setX(randomX);
 		setY(randomY);
 	}

@@ -18,7 +18,7 @@ public class SnakeFrame extends JFrame{
 	/**
 	 * Interval between refresh, 800 milliseconds. 
 	 */
-	private static int INTERVAL = 500;
+	private static int INTERVAL = 300;
 	
 	/**
 	 * width and height of the window

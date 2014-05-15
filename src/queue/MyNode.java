@@ -1,18 +1,21 @@
 package queue;
 
+import model.Block;
+
 public class MyNode {
 
     // Fields
-    private String data;
+    private Block data;
     private MyNode next;
+    private MyNode previous;
 
     // constructor
-    public MyNode(String data) {
+    public MyNode(Block data) {
         this(data,null);
     }
 
     // constructor two with Node parameter
-    public MyNode(String data, MyNode node) {
+    public MyNode(Block data, MyNode node) {
         this.data = data;
         next = node;
     }
@@ -22,22 +25,30 @@ public class MyNode {
      * */
 
     // @return the data
-    public String getData() {
+    public Block getData() {
         return data;
     }
 
     // @param String data to this.data
-    public void setData(String data) {
+    public void setData(Block data) {
         this.data = data;
     }
 
-    // @return next
+
     public MyNode getNext() {
         return next;
     }
-    // @param Node next set to this.next
+
     public void setNext(MyNode next) {
         this.next = next;
     }
 
+
+    public MyNode getPrevious() {
+        return previous;
+    }
+    // @param Node next set to this.next
+    public void setPrevious(MyNode previous) {
+        this.previous = previous;
+    }
 }

@@ -30,6 +30,14 @@ public class Block {
 		// whatever you need to initialize
 	}
 	
+	/**
+	 * Creates a clone of the Block
+	 */
+	public Block clone(){
+		Block newBlock = new Block(x,y);
+		newBlock.setColor(color);
+		return newBlock;
+	}
 	//***************************************************
 	// 				   Getters & Setters
 	//***************************************************

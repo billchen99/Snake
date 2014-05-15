@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
+import queue.MyNode;
+import queue.MyQueue;
+
 import model.Block;
 
 
@@ -25,12 +28,20 @@ public class SnakePanel extends JPanel {
 	protected void paintComponent(Graphics g) { 
 		super.paintComponent(g);
 		
-		//TODO This part needs to be modified to for snake game
-		Block sample = bsnake.getSampleBlock();
+		MyQueue snake = bsnake.getSnake();
 		Block food = bsnake.getFood();
-		drawBlock(g,sample);
+		drawSnake(g,snake.getHead());
 		drawBlock(g,food);
 
+	}
+	
+	
+	private void drawSnake(Graphics g,MyNode node){
+		if (node == null){
+			return;
+		}
+		drawBlock(g,node.getData());
+		drawSnake(g,node.getNext());
 	}
 	
 	/**
