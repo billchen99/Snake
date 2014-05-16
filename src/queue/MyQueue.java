@@ -19,6 +19,7 @@ public class MyQueue {
 		size++;
 		if (tail == null){
 			head = tail = new MyNode(s);
+			return;
 		}
 		
 		MyNode newNode = new MyNode(s);
