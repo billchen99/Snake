@@ -34,14 +34,12 @@ public class SnakePanel extends JPanel {
 		drawBlock(g,food);
 
 	}
-	
-	
-	private void drawSnake(Graphics g,MyNode node){
-		if (node == null){
+	public void drawSnake(Graphics g, MyNode q){
+		if(q==null){
 			return;
 		}
-		drawBlock(g,node.getData());
-		drawSnake(g,node.getNext());
+		drawBlock(g,q.getData());
+		drawSnake(g,q.getNext());
 	}
 	
 	/**

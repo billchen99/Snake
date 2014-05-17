@@ -37,8 +37,16 @@ public class BSnake{
 	public BSnake(){
 		snake = new MyQueue();
 		// TODO initialize the snake
-
+		Block a = new Block(20,20);
+		a.setColor(Color.GREEN);
+		Block b = new Block(20,40);
+		b.setColor(Color.GREEN);
+		Block c= new Block(20,60);
+		c.setColor(Color.GREEN);
 		
+		snake.push(a);
+		snake.push(b);
+		snake.push(c);
 		this.food = new Food();
 		direction = 'D';
 		// This draws the frame/window
@@ -50,32 +58,35 @@ public class BSnake{
 	 * Updates the coordinates of the sampleBlock depending on the current direction
 	 */
 	public void update(){
-//		int prevX = sampleBlock.getX(), prevY = sampleBlock.getY();
-//
-//		if (isGameOver) {
-//		return;
-//		}
-//		if (direction == 'U'){
-//		sampleBlock.setY(sampleBlock.getY() - Block.BLOCK_SIZE);
-//		}
-//		else if (direction == 'D'){
-//		sampleBlock.setY(sampleBlock.getY() + Block.BLOCK_SIZE);
-//		}
-//		else if (direction == 'L'){
-//		sampleBlock.setX(sampleBlock.getX() - Block.BLOCK_SIZE);
-//		}
-//		else if (direction == 'R'){
-//		sampleBlock.setX(sampleBlock.getX() + Block.BLOCK_SIZE);
-//		}
-//		wallCollision();
-//		foodCollision();
-//
-//		if (isGameOver) {
-//		sampleBlock.setX(prevX);
-//		sampleBlock.setY(prevY);
-//		}
 
-		
+
+		if (isGameOver) {
+		return;
+		}
+		Block a;
+		if (direction == 'U'){
+			a = new Block(snake.getHead().getData().getX(),snake.getHead().getData().getY()-Block.BLOCK_SIZE);
+		}
+		else if (direction == 'D'){
+			a = new Block(snake.getHead().getData().getX(),snake.getHead().getData().getY()+Block.BLOCK_SIZE);
+		}
+		else if (direction == 'L'){
+			a = new Block(snake.getHead().getData().getX()-Block.BLOCK_SIZE,snake.getHead().getData().getY());
+		}
+		else
+			a = new Block(snake.getHead().getData().getX()+Block.BLOCK_SIZE,snake.getHead().getData().getY());
+
+		a.setColor(Color.GREEN);
+		snake.push(a);
+		snake.pop();
+		wallCollision(snake.getHead().getData());
+		foodCollision(snake.getHead().getData());
+
+		if (isGameOver) {
+
+		}
+
+
 	}
 
 	public MyQueue getSnake(){
@@ -106,6 +117,7 @@ public class BSnake{
 	
 	public void foodCollision(Block headBlock){
 		if(food.getX()==headBlock.getX() && food.getY()==headBlock.getY()){
+//			Block a = new Block(snake.getTail().getData().getX())
 			food = new Food();
 		}
 	}
