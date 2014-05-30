@@ -59,6 +59,16 @@ public class MyQueue {
 	public MyNode getTail(){
 		return tail;
 	}
+	public MyNode peek(int index){
+		MyNode n = head;
+		for(int i = 0;i<index;i++){
+			n=n.getNext();
+			if(n==null){
+				break;
+			}
+		}
+		return n;
+	}
 
 	public static void main(String[] args){
 		MyQueue mylist = new MyQueue();
